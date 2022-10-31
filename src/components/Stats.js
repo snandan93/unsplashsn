@@ -1,0 +1,36 @@
+import React from "react";
+import CountUp from "react-countup";
+
+const Sentence = ({ stats, query }) => {
+  return (
+    <>
+      <div className="stats">
+        <svg
+          width="32"
+          height="32"
+          className="_1Ig-9"
+          version="1.1"
+          viewBox="0 0 32 32"
+          aria-hidden="false"
+        >
+          <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+        </svg>
+        {stats === 0 ? (
+          <p>
+            Sorry there are no results for <b className="query">{query}</b>, try
+            again!
+          </p>
+        ) : (
+          <p>
+            Currently showing
+            <strong> {stats && <CountUp end={stats} />} </strong>
+            results for:
+            <strong> {query} </strong>
+          </p>
+        )}
+      </div>
+    </>
+  );
+};
+
+export default Sentence;
